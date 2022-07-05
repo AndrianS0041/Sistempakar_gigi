@@ -17,28 +17,23 @@ class Home extends CI_Controller
     $this->load->helper('text');
     $this->load->helper('date');
     $this->load->library('pagination');
-    $this->load->model('Admin_model');
+    $this->load->model('User_model');
   }
 
   public function index(){
 
-		if($this->session->userdata('status') != "login"){
-			redirect(base_url('admin/login'));
+		if($this->session->userdata('status') != "login_user"){
+			redirect(base_url('user/login'));
 		}
-
-    $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();
-    $data['gejala'] = $this->Admin_model->getAll_gejala()->num_rows();
-    $data['rule'] = $this->Admin_model->getAll_rule()->num_rows();
-
-    $this->load->view('pages/admin/header');
-		$this->load->view('pages/admin/home',$data);
-		$this->load->view('pages/admin/footer');
+    $this->load->view('pages/user/header');
+		$this->load->view('pages/user/home');
+		$this->load->view('pages/user/footer');
 	}
 
   public function api(){
 
-		if($this->session->userdata('status') != "login"){
-			redirect(base_url('admin/login'));
+		if($this->session->userdata('status') != "login_user"){
+			redirect(base_url('user/login'));
 		}
 
     $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();

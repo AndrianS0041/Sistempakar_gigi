@@ -13,11 +13,21 @@ class Admin_model extends CI_Model
     $this->load->database();
   }
 
-  //------------------user----------------------------------------------------------
+  //------------------Login admin----------------------------------------------------------
   public function get_admin($data){
     $this->db->select('*');
     $this->db->from('tb_admin');
     $this->db->where('username = ',$data['username']);
+    $this->db->where('password = ',$data['password']);
+    $query = $this->db->get();
+    return $query;
+  }
+
+  //------------------Login user----------------------------------------------------------
+  public function get_user($data){
+    $this->db->select('*');
+    $this->db->from('tb_user');
+    $this->db->where('email = ',$data['email']);
     $this->db->where('password = ',$data['password']);
     $query = $this->db->get();
     return $query;
@@ -50,13 +60,12 @@ class Admin_model extends CI_Model
     return $query;
   }
 
-  public function cek_kode($kode_penyakit){
-    $this->db->select('*');
-    $this->db->from('tb_penyakit');
-    $this->db->where('kode_penyakit = ',$kode_penyakit);
-    $query = $this->db->get();
-    return $query;
-  }
+  public function cekkodepenyakit()
+    {
+      $query = $this->db->query("SELECT MAX(kode_penyakit) as kodepenyakit from tb_penyakit");
+      $hasil = $query->row();
+      return $hasil->kodepenyakit;
+    }
 
   public function insert_penyakit($data){
     $this->db->set('kode_penyakit',$data['kode_penyakit']);
@@ -164,6 +173,10 @@ class Admin_model extends CI_Model
     $query = $this->db->get();
     return $query;
   }
+  public function delete_konsultasi($id_jawaban){
+    $this->db->where('id_jawaban = ',$id_jawaban);
+    $this->db->delete('riwayat_jawaban');
+  }
 
   //------------------Pasien----------------------------------------------------------
   public function getAll_user(){
@@ -191,6 +204,19 @@ class Admin_model extends CI_Model
     public function delete_user($id_user){
     $this->db->where('id_user = ',$id_user);
     $this->db->delete('tb_user');
+  }
+
+  public function get_pasien($where){
+    $this->db->select('*');
+    $this->db->from('tb_user');
+    $this->db->where($where);
+    $query = $this->db->get();
+    return $query;
+  }
+
+  public function update_pasien($data,$id_user){
+    $this->db->where('id_user = ',$id_user);
+    $this->db->update('tb_user',$data);
   }
 
 }

@@ -36,7 +36,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Daftar Akun Baru!</h1>
                             </div>
-                            <form class="user" action="<?php echo base_url(); ?>admin/daftar/proses_daftar" method="post">
+                            <form class="user" action="<?php echo base_url(); ?>user/daftar/proses_daftar" method="post">
                                 <?php if($this->session->flashdata('tambah')): ?>
                                 <?php if($this->session->flashdata('tambah') == TRUE): ?>
                                 <div class="alert alert-success">Berhasil menambahkan pengguna baru.
@@ -73,7 +73,7 @@
                                     Daftar
                                 </button>
                                 <hr>
-                                <a href="<?php echo base_url(); ?>admin/login" class="btn btn-google btn-user btn-block">
+                                <a href="<?php echo base_url(); ?>user/login" class="btn btn-google btn-user btn-block">
                                     Sudah Punya Akun
                                 </a>
                             </form>

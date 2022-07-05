@@ -79,18 +79,6 @@
 
   <div class="container">
     <form action="<?php echo base_url(); ?>admin/gejala/proses_tambah" method="post">
-      <?php
-      if (isset($cek_kode)) {
-      ?>
-      <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-        </button>
-        Kode <strong><?php echo $kode_gejala; ?></strong> telah terdaftar
-      </div>
-      <?php
-      }
-      ?>
       <div class="row">
         <div class="col-25">
           <label for="kode_gejala">Kode Gejala</label>

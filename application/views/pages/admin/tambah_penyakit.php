@@ -79,24 +79,12 @@
 
   <div class="container">
     <form action="<?php echo base_url(); ?>admin/penyakit/proses_tambah" method="post">
-      <?php
-      if (isset($cek_kode)) {
-      ?>
-      <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-        </button>
-        Kode <strong><?php echo $kode_penyakit; ?></strong> telah terdaftar
-      </div>
-      <?php
-      }
-      ?>
       <div class="row">
         <div class="col-25">
           <label for="kode_penyakit">Kode Penyakit</label>
         </div>
         <div class="col-75">
-          <input type="text" name="kode_penyakit" placeholder="Kode Penyakit" required>
+          <input type="text" name="kode_penyakit" value="P<?php echo sprintf("%0s", $kode_penyakit) ?>" readonly>
         </div>
       </div>
       <div class="row">
@@ -109,7 +97,7 @@
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="penjelasan">Penjelasan</label>
+          <label for="penjelasan">Penjelasan Penyakit</label>
         </div>
         <div class="col-75">
           <textarea name="penjelasan" placeholder="Penjelasan" style="height:200px"></textarea>
@@ -125,7 +113,7 @@
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="penanganan">Penanganan</label>
+          <label for="penanganan">Solusi penanganan</label>
         </div>
         <div class="col-75">
           <textarea name="penanganan" placeholder="Penanganan" style="height:200px"></textarea>

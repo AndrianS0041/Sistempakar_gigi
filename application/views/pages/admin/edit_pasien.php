@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Edit Penyakit</h1>
+  <h1 class="h3 mb-2 text-gray-800">Edit Pasien</h1>
 
   <style>
     * {
@@ -78,53 +78,56 @@
   </style>
 
   <div class="container">
-    <form action="<?php echo base_url(); ?>admin/penyakit/proses_edit" method="post">
+    <form action="<?php echo base_url(); ?>admin/pasien/proses_edit" method="post">
+      
       <?php
-      if (isset($penyakit)) {
-        foreach ($penyakit as $data) {
+      if (isset($pasien)) {
+        foreach ($pasien as $data) {
       ?>
 
       <div class="row">
         <div class="col-25">
-          <label for="kode_penyakit">Kode Penyakit</label>
+          <label for="kode_pasien">Kode Pasien</label>
         </div>
         <div class="col-75">
-          <input type="hidden" name="id_penyakit" required value="<?php echo $data->id_penyakit; ?>">
-          <input type="text" name="kode_penyakit" value="<?php echo $data->kode_penyakit; ?>" readonly>
+          <input type="hidden" name="id_pasien" required value="<?php echo $data->id_user; ?>">
+          <input type="text" name="kode_pasien" required value="<?php echo $data->kode_pasien; ?>" readonly>
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="nama_penyakit">Nama Penyakit</label>
+          <label for="nama">Nama</label>
         </div>
         <div class="col-75">
-          <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" required value="<?php echo $data->nama_penyakit; ?>">
+          <input type="text" name="nama" placeholder="Nama" required value="<?php echo $data->nama; ?>">
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="penjelasan">Penjelasan</label>
+          <label for="email">Email</label>
         </div>
         <div class="col-75">
-          <textarea name="penjelasan" placeholder="Penjelasan" style="height:200px"><?php echo $data->penjelasan; ?></textarea>
+          <input type="email" name="email" placeholder="Email" required value="<?php echo $data->email; ?>">
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="gejala">Gejala</label>
+          <label for="hp">No Hp</label>
         </div>
         <div class="col-75">
-          <textarea name="gejala" placeholder="Gejala" style="height:200px"><?php echo $data->gejala; ?></textarea>
+          <input type="text" name="hp" placeholder="08....." required value="<?php echo $data->hp; ?>">
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="penanganan">Penanganan</label>
+          <label for="alamat">Alamat</label>
         </div>
         <div class="col-75">
-          <textarea name="penanganan" placeholder="Penanganan" style="height:200px"><?php echo $data->penanganan; ?></textarea>
+          <textarea name="alamat" rows="4" cols="50" placeholder="Alamat" require value="<?php echo $data->alamat; ?>">
+          </textarea>
         </div>
-      </div>
+
+
       <br>
       <div class="row float-right">
         <input type="submit" value="Submit">

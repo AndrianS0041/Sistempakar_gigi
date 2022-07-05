@@ -31,11 +31,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>admin/home">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>user/home">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin</div>
+                <div class="sidebar-brand-text mx-3">Dashboard User</div>
             </a>
 
             <!-- Divider -->
@@ -53,45 +53,32 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Basis Pengetahuan
+                Profil
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>admin/penyakit">
+                <a class="nav-link" href="<?php echo base_url(); ?>user/profil">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Data Penyakit</span></a>
+                    <span>Profil</span></a>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>admin/gejala">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Data Gejala</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>admin/rule">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Data Rule</span></a>
-            </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Pasien
+                Konsultasi
             </div>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>admin/pasien">
+                <a class="nav-link" href="<?php echo base_url(); ?>user/pasien">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Data Pasien</span></a>
+                    <span>Diagnosa Penyakit</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>admin/konsultasi">
+                <a class="nav-link" href="<?php echo base_url(); ?>user/konsultasi">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Riwayat Konsultasi</span></a>
             </li>
@@ -128,7 +115,7 @@
                             <div class="input-group-append">
                                     
                                 <h3">
-                                  <a href="<?php echo base_url(); ?>admin/login/proses_logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
+                                  <a href="<?php echo base_url(); ?>user/login/proses_logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
                               </h3>
                                 
                             </div>

@@ -37,10 +37,8 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="<?php echo base_url(); ?>about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="<?php echo base_url(); ?>konsultasi" class="nav-link">Konsultasi</a></li>
-            <li class="nav-item"><a href="<?php echo base_url(); ?>tips" class="nav-link">Tips</a></li>
-            <li class="nav-item"><a href="<?php echo base_url(); ?>admin/login" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="<?php echo base_url(); ?>user/login" class="nav-link">Login</a></li>
           </ul>
           </div>
       </div>

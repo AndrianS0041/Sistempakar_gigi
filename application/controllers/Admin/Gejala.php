@@ -94,8 +94,7 @@ public function edit(){
 		}
 
     $id_gejala = $this->input->post('id_gejala');
-    $now_kode_gejala = $this->input->post('now_kode_gejala');
-
+    
     $kode_gejala = $this->input->post('kode_gejala');
     $gejala = $this->input->post('gejala');
 
@@ -104,25 +103,9 @@ public function edit(){
 			'gejala' => $gejala
     );
 
-		$cek_kode = $this->Admin_model->cek_kode_gejala($kode_gejala)->num_rows();
-		if ($cek_kode == 0) {
-		  $this->Admin_model->update_gejala($data,$id_gejala);
+		$this->Admin_model->update_gejala($data,$id_gejala);
       redirect(base_url('admin/gejala'));
-		}
-		else {
-			if ($kode_gejala == $now_kode_gejala) {
-        $this->Admin_model->update_gejala($data,$id_gejala);
-        redirect(base_url('admin/gejala'));
-      }else {
-        $data['cek_kode'] = "ada";
-        $where = array('id_gejala' => $id_gejala );
-
-    		$data['gejala'] = $this->Admin_model->get_gejala($where)->result();
-  			$this->load->view('pages/admin/header');
-  			$this->load->view('pages/admin/edit_gejala',$data);
-  			$this->load->view('pages/admin/footer');
-      }
-		}
+		
   }
 
   public function hapus(){

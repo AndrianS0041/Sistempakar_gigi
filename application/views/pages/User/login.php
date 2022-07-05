@@ -29,8 +29,7 @@
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
+              <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
@@ -42,15 +41,15 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                     </button>
-                    Username atau Password salah
+                    Email atau Password salah
                   </div>
                   <?php
                   }
                   ?>
-                  <form class="user" action="<?php echo base_url(); ?>admin/login/proses_login" method="post">
+                  <form class="user" action="<?php echo base_url(); ?>user/login/proses_login" method="post">
                     <div class="form-group">
-                      <label for="username">Username</label>
-                      <input type="text" class="form-control form-control-user" name="username" id="exampleInputUsername" aria-describedby="nameHelp" placeholder="Username" required>
+                      <label for="username">Email</label>
+                      <input type="email" class="form-control form-control-user" name="email" id="exampleInputUsername" aria-describedby="nameHelp" placeholder="User@gmail.com" required>
                     </div>
                     <div class="form-group">
                       <label for="password">Password</label>
@@ -62,7 +61,10 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="<?php echo base_url(); ?>home">Home</a>
+                    <a class="small" href="<?php echo base_url(); ?>user/daftar">Daftar!</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="<?php echo base_url(); ?>admin/login">Login Admin</a>
                   </div>
                 </div>
               </div>

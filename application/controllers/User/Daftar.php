@@ -17,16 +17,16 @@ class Daftar extends CI_Controller
     $this->load->helper('text');
     $this->load->helper('date');
     $this->load->library('pagination');
-    $this->load->model('Admin_model');
+    $this->load->model('User_model');
   }
 
     public function index(){
 
-		if($this->session->userdata('status') == "login"){
-			redirect(base_url('admin/home'));
+		if($this->session->userdata('status') == "login_user"){
+			redirect(base_url('user/home'));
 		}
 
-		$this->load->view('pages/admin/daftar');
+		$this->load->view('pages/user/daftar');
 	}
 
     public function proses_daftar(){
@@ -45,13 +45,13 @@ class Daftar extends CI_Controller
 			'password' => $password
     );
 
-    if($this->Admin_model->insert_user($data) == TRUE) {
+    if($this->User_model->insert_user($data) == TRUE) {
           $this->session->set_flashdata('tambah', true);
      }
      else {
           $this->session->set_flashdata('tambah', false);
      }
 
-     redirect(base_url('admin/daftar'));
+     redirect(base_url('user/daftar'));
     }
 }

@@ -38,9 +38,14 @@ class Penyakit extends CI_Controller
 		if($this->session->userdata('status') != "login"){
 			redirect(base_url('admin/login'));
 		}
+		$dariDB = $this->Admin_model->cekkodepenyakit();
+        // contoh JRD0004, angka 2 adalah awal pengambilan angka, dan 3 jumlah angka yang diambil
+        $nourut = substr($dariDB, 1, 1);
+        $kodePenyakitSekarang = $nourut + 1;
+        $data = array('kode_penyakit' => $kodePenyakitSekarang);
 
-    $this->load->view('pages/admin/header');
-		$this->load->view('pages/admin/tambah_penyakit');
+        $this->load->view('pages/admin/header');
+		$this->load->view('pages/admin/tambah_penyakit',$data);
 		$this->load->view('pages/admin/footer');
 	}
 
@@ -52,7 +57,7 @@ class Penyakit extends CI_Controller
 
     $kode_penyakit = $this->input->post('kode_penyakit');
     $nama_penyakit = $this->input->post('nama_penyakit');
-		$penjelasan = $this->input->post('penjelasan');
+	$penjelasan = $this->input->post('penjelasan');
     $gejala = $this->input->post('gejala');
     $penanganan = $this->input->post('penanganan');
 
@@ -64,18 +69,10 @@ class Penyakit extends CI_Controller
 			'penanganan' => $penanganan
     );
 
-		$cek_kode = $this->Admin_model->cek_kode($kode_penyakit)->num_rows();
-		if ($cek_kode == 0) {
-		  $this->Admin_model->insert_penyakit($data);
-      redirect(base_url('admin/penyakit'));
-		}
-		else {
-			$data['cek_kode'] = "ada";
-			$this->load->view('pages/admin/header');
-			$this->load->view('pages/admin/tambah_penyakit',$data);
-			$this->load->view('pages/admin/footer');
-		}
-  }
+	$this->Admin_model->insert_penyakit($data);
+    redirect(base_url('admin/penyakit'));
+		
+}
 
   public function edit(){
 
@@ -101,11 +98,10 @@ class Penyakit extends CI_Controller
 		}
 
     $id_penyakit = $this->input->post('id_penyakit');
-    $now_kode_penyakit = $this->input->post('now_kode_penyakit');
-
+    
     $kode_penyakit = $this->input->post('kode_penyakit');
     $nama_penyakit = $this->input->post('nama_penyakit');
-		$penjelasan = $this->input->post('penjelasan');
+	$penjelasan = $this->input->post('penjelasan');
     $gejala = $this->input->post('gejala');
     $penanganan = $this->input->post('penanganan');
 
@@ -117,26 +113,11 @@ class Penyakit extends CI_Controller
 			'penanganan' => $penanganan
     );
 
-		$cek_kode = $this->Admin_model->cek_kode($kode_penyakit)->num_rows();
-		if ($cek_kode == 0) {
-		  $this->Admin_model->update_penyakit($data,$id_penyakit);
-      redirect(base_url('admin/penyakit'));
-		}
-		else {
-			if ($kode_penyakit == $now_kode_penyakit) {
-        $this->Admin_model->update_penyakit($data,$id_penyakit);
-        redirect(base_url('admin/penyakit'));
-      }else {
-        $data['cek_kode'] = "ada";
-        $where = array('id_penyakit' => $id_penyakit );
-
-    		$data['penyakit'] = $this->Admin_model->get_penyakit($where)->result();
-  			$this->load->view('pages/admin/header');
-  			$this->load->view('pages/admin/edit_penyakit',$data);
-  			$this->load->view('pages/admin/footer');
-      }
-		}
-  }
+	
+	$this->Admin_model->update_penyakit($data,$id_penyakit);
+    redirect(base_url('admin/penyakit'));
+		
+}
 
   public function hapus(){
 

@@ -80,18 +80,6 @@
   <div class="container">
     <form action="<?php echo base_url(); ?>admin/gejala/proses_edit" method="post">
       <?php
-      if (isset($cek_kode)) {
-      ?>
-      <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-        </button>
-        Kode <strong><?php echo $kode_gejala; ?></strong> telah terdaftar
-      </div>
-      <?php
-      }
-      ?>
-      <?php
       if (isset($gejala)) {
         foreach ($gejala as $data) {
       ?>
@@ -102,8 +90,7 @@
         </div>
         <div class="col-75">
           <input type="hidden" name="id_gejala" required value="<?php echo $data->id_gejala; ?>">
-          <input type="hidden" name="now_kode_gejala" required value="<?php echo $data->kode_gejala; ?>">
-          <input type="text" name="kode_gejala" placeholder="ex: G1" required value="<?php echo $data->kode_gejala; ?>">
+          <input type="text" name="kode_gejala" value="<?php echo $data->kode_gejala; ?>" readonly>
         </div>
       </div>
       <div class="row">

@@ -75,56 +75,54 @@ class Pasien extends CI_Controller
     redirect(base_url('admin/pasien'));
 }
 
-// public function edit(){
+public function edit(){
 
-//     if($this->session->userdata('status') != "login"){
-// 			redirect(base_url('admin/login'));
-// 		}
+    if($this->session->userdata('status') != "login"){
+			redirect(base_url('admin/login'));
+		}
 
-// 		$id_user = $this->uri->segment(4);
+		$id_user = $this->uri->segment(4);
 
-//     $where = array('id_gejala' => $id_user, );
+    $where = array('id_user' => $id_user, );
 
-// 		$data['pasien'] = $this->Admin_model->get_gejala($where)->result();
+		$data['pasien'] = $this->Admin_model->get_pasien($where)->result();
 
-// 		$this->load->view('pages/admin/header');
-// 		$this->load->view('pages/admin/edit_pasien',$data);
-// 		$this->load->view('pages/admin/footer');
-// 	}
+		$this->load->view('pages/admin/header');
+		$this->load->view('pages/admin/edit_pasien',$data);
+		$this->load->view('pages/admin/footer');
+	}
 
-//   public function proses_edit(){
+  public function proses_edit(){
 
-//     if($this->session->userdata('status') != "login"){
-// 			redirect(base_url('admin/login'));
-// 		}
+    if($this->session->userdata('status') != "login"){
+			redirect(base_url('admin/login'));
+		}
 
-//     $id_user = $this->input->post('id_gejala');
-//     $gejala = $this->input->post('gejala');
+    $id_user = $this->input->post('id_user');
+    $kode_pasien = $this->input->post('kode_pasien');
+    $nama = $this->input->post('nama');
+    $email = $this->input->post('email');
+    $hp= $this->input->post('hp');
+    $alamat = $this->input->post('alamat');
 
-// 		$data = array(
-// 			'gejala' => $gejala
-//     );
+		$data = array(
+			'kode_pasien' => $kode_pasien,
+			'nama' => $nama,
+			'email' => $email,
+			'hp' => $hp,
+			'alamat' => $alamat
+    );
 
-// 		$cek_kode = $this->Admin_model->cek_kode_gejala($kode_gejala)->num_rows();
-// 		if ($cek_kode == 0) {
-// 		  $this->Admin_model->update_gejala($data,$id_gejala);
-//       redirect(base_url('admin/gejala'));
-// 		}
-// 		else {
-// 			if ($kode_gejala == $now_kode_gejala) {
-//         $this->Admin_model->update_gejala($data,$id_gejala);
-//         redirect(base_url('admin/gejala'));
-//       }else {
-//         $data['cek_kode'] = "ada";
-//         $where = array('id_gejala' => $id_gejala );
+		
+		  $this->Admin_model->update_pasien($data,$id_user);
+      redirect(base_url('admin/pasien'));
 
-//     		$data['gejala'] = $this->Admin_model->get_gejala($where)->result();
-//   			$this->load->view('pages/admin/header');
-//   			$this->load->view('pages/admin/edit_gejala',$data);
-//   			$this->load->view('pages/admin/footer');
-//       }
-// 		}
-//   }
+    		$data['pasien'] = $this->Admin_model->get_pasien($where)->result();
+  			$this->load->view('pages/admin/header');
+  			$this->load->view('pages/admin/edit_pasien',$data);
+  			$this->load->view('pages/admin/footer');
+      
+  }
 
   public function hapus(){
 

@@ -41,7 +41,7 @@ class Konsultasi extends CI_Controller
 
 		$id_jawaban = $this->uri->segment(4);
 
-		$this->Admin_model->delete_gejala($id_jawaban);
+		$this->Admin_model->delete_konsultasi($id_jawaban);
 
 		redirect(base_url('admin/konsultasi'));
 	}
