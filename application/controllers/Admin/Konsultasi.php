@@ -20,30 +20,31 @@ class Konsultasi extends CI_Controller
     $this->load->model('Admin_model');
   }
 
-  public function index(){
+  public function index()
+  {
 
-		if($this->session->userdata('status') != "login"){
-			redirect(base_url('admin/login'));
-		}
+    if ($this->session->userdata('status') != "login") {
+      redirect(base_url('admin/login'));
+    }
 
     $data['konsultasi'] = $this->Admin_model->getAll_konsultasi()->result();
 
     $this->load->view('pages/admin/header');
-		$this->load->view('pages/admin/konsultasi',$data);
-		$this->load->view('pages/admin/footer');
-	}
+    $this->load->view('pages/admin/konsultasi', $data);
+    $this->load->view('pages/admin/footer');
+  }
 
-    public function hapus(){
+  public function hapus()
+  {
 
-    if($this->session->userdata('status') != "login"){
-			redirect(base_url('admin/login'));
-		}
+    if ($this->session->userdata('status') != "login") {
+      redirect(base_url('admin/login'));
+    }
 
-		$id_jawaban = $this->uri->segment(4);
+    $id_jawaban = $this->uri->segment(4);
 
-		$this->Admin_model->delete_konsultasi($id_jawaban);
+    $this->Admin_model->delete_konsultasi($id_jawaban);
 
-		redirect(base_url('admin/konsultasi'));
-	}
-
+    redirect(base_url('admin/konsultasi'));
+  }
 }

@@ -9,7 +9,9 @@
       box-sizing: border-box;
     }
 
-    input[type=text], select, textarea {
+    input[type=text],
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -17,7 +19,9 @@
       resize: vertical;
     }
 
-    input[type=number], select, textarea {
+    input[type=number],
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -70,7 +74,10 @@
 
     /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
-      .col-25, .col-75, input[type=submit] {
+
+      .col-25,
+      .col-75,
+      input[type=submit] {
         width: 100%;
         margin-top: 0;
       }
@@ -82,12 +89,12 @@
       <?php
       if (isset($cek_kode)) {
       ?>
-      <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-        </button>
-        Kode <strong><?php echo $kode_rule; ?></strong> telah terdaftar
-      </div>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          Kode <strong><?php echo $kode_rule; ?></strong> telah terdaftar
+        </div>
       <?php
       }
       ?>
@@ -96,41 +103,41 @@
         foreach ($rule as $data) {
       ?>
 
-      <div class="row">
-        <div class="col-25">
-          <label for="kode_rule">Kode rule</label>
-        </div>
-        <div class="col-75">
-          <input type="hidden" name="id_rule" required value="<?php echo $data->id_rule; ?>">
-          <input type="hidden" name="now_kode_rule" required value="<?php echo $data->kode_rule; ?>">
-          <input type="text" name="kode_rule" placeholder="Kode rule" required value="<?php echo $data->kode_rule; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="kode_gejala">Kode Gejala</label>
-        </div>
-        <div class="col-75">
-          <input type="text" name="kode_gejala" placeholder="ex: G1 G3 G5" required value="<?php echo $data->kode_gejala; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="kode_penyakit">Kode Penyakit</label>
-        </div>
-        <div class="col-75">
-          <input type="text" name="kode_penyakit" placeholder="ex: P1" required value="<?php echo $data->kode_penyakit; ?>">
-        </div>
-      </div>
-      <br>
-      <div class="row float-right">
-        <input type="submit" value="Submit">
-      </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="kode_rule">Kode rule</label>
+            </div>
+            <div class="col-75">
+              <input type="hidden" name="id_rule" required value="<?php echo $data->id_rule; ?>">
+              <input type="hidden" name="now_kode_rule" required value="<?php echo $data->kode_rule; ?>">
+              <input type="text" name="kode_rule" placeholder="Kode rule" required value="<?php echo $data->kode_rule; ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="kode_gejala">Kode Gejala</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="kode_gejala" placeholder="ex: G1 G3 G5" required value="<?php echo $data->kode_gejala; ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="kode_penyakit">Kode Penyakit</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="kode_penyakit" placeholder="ex: P1" required value="<?php echo $data->kode_penyakit; ?>">
+            </div>
+          </div>
+          <br>
+          <div class="row float-right">
+            <input type="submit" value="Submit">
+          </div>
 
       <?php
         }
       }
-       ?>
+      ?>
     </form>
   </div>
   <br><br><br>

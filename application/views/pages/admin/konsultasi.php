@@ -22,23 +22,23 @@
             $no = 1;
             foreach ($konsultasi as $data) {
             ?>
-            <tr>
-              <td><?php echo $no; ?></td>
-              <td><?php echo $data->jawaban; ?></td>
-              <td><?php echo $data->waktu; ?></td>
-              <td>
-                <a href="<?php echo base_url(); ?>admin/konsultasi/hapus/<?php echo $data->id_jawaban; ?>" class="btn btn-danger btn-icon-split btn-sm">
+              <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $data->jawaban; ?></td>
+                <td><?php echo $data->waktu; ?></td>
+                <td>
+                  <a href="<?php echo base_url(); ?>admin/konsultasi/hapus/<?php echo $data->id_jawaban; ?>" class="btn btn-danger btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-times"></i>
                     </span>
                     <span class="text">Hapus</span>
-                </a>
-              </td>
-            </tr>
+                  </a>
+                </td>
+              </tr>
             <?php
-            $no++;
+              $no++;
             }
-             ?>
+            ?>
           </tbody>
         </table>
       </div>

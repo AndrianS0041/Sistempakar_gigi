@@ -27,29 +27,29 @@
             $no = 1;
             foreach ($penyakit as $data) {
             ?>
-            <tr>
-              <td><?php echo $no; ?></td>
-              <td><?php echo $data->kode_penyakit; ?></td>
-              <td><?php echo $data->nama_penyakit; ?></td>
-              <td>
-                <a href="<?php echo base_url(); ?>admin/penyakit/edit/<?php echo $data->id_penyakit; ?>" class="btn btn-warning btn-icon-split btn-sm">
+              <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $data->kode_penyakit; ?></td>
+                <td><?php echo $data->nama_penyakit; ?></td>
+                <td>
+                  <a href="<?php echo base_url(); ?>admin/penyakit/edit/<?php echo $data->id_penyakit; ?>" class="btn btn-warning btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-edit"></i>
                     </span>
                     <span class="text">Edit</span>
-                </a>
-                <a href="<?php echo base_url(); ?>admin/penyakit/hapus/<?php echo $data->id_penyakit; ?>" class="btn btn-danger btn-icon-split btn-sm">
+                  </a>
+                  <a href="<?php echo base_url(); ?>admin/penyakit/hapus/<?php echo $data->id_penyakit; ?>" class="btn btn-danger btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-times"></i>
                     </span>
                     <span class="text">Hapus</span>
-                </a>
-              </td>
-            </tr>
+                  </a>
+                </td>
+              </tr>
             <?php
-            $no++;
+              $no++;
             }
-             ?>
+            ?>
           </tbody>
         </table>
       </div>

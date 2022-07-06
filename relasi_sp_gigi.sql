@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 06, 2022 at 04:11 AM
+-- Generation Time: Jul 06, 2022 at 04:24 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.16
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_spgigi`
+-- Database: `sp_gigi`
 --
 
 -- --------------------------------------------------------
@@ -31,18 +31,9 @@ CREATE TABLE `riwayat_jawaban` (
   `id_jawaban` int(100) NOT NULL,
   `id_user` int(11) NOT NULL,
   `waktu` datetime NOT NULL,
+  `Id_penyakit` int(11) NOT NULL,
   `jawaban` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `riwayat_jawaban`
---
-
-INSERT INTO `riwayat_jawaban` (`id_jawaban`, `id_user`, `waktu`, `jawaban`) VALUES
-(87, 0, '2022-07-02 19:44:38', 'G21 G23 G25 G26 G29'),
-(89, 0, '2022-07-02 20:40:32', 'G20 G21 G22'),
-(90, 0, '2022-07-02 21:25:38', 'G1 G2 G3 G4 G5'),
-(91, 0, '2022-07-03 23:38:00', 'G1 G2 G3');
 
 -- --------------------------------------------------------
 
@@ -175,24 +166,6 @@ CREATE TABLE `tb_rule` (
   `kode_penyakit` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tb_rule`
---
-
-INSERT INTO `tb_rule` (`id_rule`, `kode_rule`, `id_gejala`, `kode_gejala`, `id_penyakit`, `kode_penyakit`) VALUES
-(14, 'R1', 0, 'G1 G2 G3', 0, 'P1'),
-(15, 'R2', 0, 'G4 G5 G6', 0, 'P2'),
-(16, 'R3', 0, 'G7 G8 G9 G10', 0, 'P3'),
-(17, 'R4', 0, 'G11 G12 G13 G14 G15', 0, 'P4'),
-(18, 'R5', 0, 'G16 G17 G18 G19 G20 G21 G22', 0, 'P5'),
-(19, 'R6', 0, 'G14 G15 G23 G24 G25', 0, 'P6'),
-(20, 'R7', 0, 'G4 G26 G27 G28 G29', 0, 'P7'),
-(21, 'R8', 0, 'G29 G30 G31 G32', 0, 'P8'),
-(22, 'R9', 0, 'G29 G33 G34 G35 G36 G37', 0, 'P9'),
-(23, 'R10', 0, 'G38 G39 G40 G41', 0, 'P10'),
-(24, 'R11', 0, 'G38 G42 G43 G44', 0, 'P11'),
-(25, 'R12', 0, 'G29 G34 G45 G46', 0, 'P12');
-
 -- --------------------------------------------------------
 
 --
@@ -227,7 +200,8 @@ INSERT INTO `tb_user` (`id_user`, `kode_pasien`, `nama`, `email`, `hp`, `alamat`
 -- Indexes for table `riwayat_jawaban`
 --
 ALTER TABLE `riwayat_jawaban`
-  ADD PRIMARY KEY (`id_jawaban`);
+  ADD PRIMARY KEY (`id_jawaban`),
+  ADD KEY `Id_penyakit` (`Id_penyakit`);
 
 --
 -- Indexes for table `tb_admin`
@@ -251,7 +225,9 @@ ALTER TABLE `tb_penyakit`
 -- Indexes for table `tb_rule`
 --
 ALTER TABLE `tb_rule`
-  ADD PRIMARY KEY (`id_rule`);
+  ADD PRIMARY KEY (`id_rule`),
+  ADD KEY `id_gejala` (`id_gejala`),
+  ADD KEY `id_penyakit` (`id_penyakit`);
 
 --
 -- Indexes for table `tb_user`
@@ -298,6 +274,23 @@ ALTER TABLE `tb_rule`
 --
 ALTER TABLE `tb_user`
   MODIFY `id_user` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `riwayat_jawaban`
+--
+ALTER TABLE `riwayat_jawaban`
+  ADD CONSTRAINT `riwayat_jawaban_ibfk_1` FOREIGN KEY (`Id_penyakit`) REFERENCES `tb_penyakit` (`id_penyakit`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `tb_rule`
+--
+ALTER TABLE `tb_rule`
+  ADD CONSTRAINT `tb_rule_ibfk_1` FOREIGN KEY (`id_gejala`) REFERENCES `tb_gejala` (`id_gejala`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tb_rule_ibfk_2` FOREIGN KEY (`id_penyakit`) REFERENCES `tb_penyakit` (`id_penyakit`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

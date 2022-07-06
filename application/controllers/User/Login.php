@@ -15,41 +15,43 @@ class Login extends CI_Controller
     $this->load->model('User_model');
   }
 
-  public function index(){
+  public function index()
+  {
 
-		if($this->session->userdata('status') == "login_user"){
-			redirect(base_url('user/home'));
-		}
+    if ($this->session->userdata('status') == "login_user") {
+      redirect(base_url('user/home'));
+    }
 
-		$this->load->view('pages/user/login');
-	}
+    $this->load->view('pages/user/login');
+  }
 
-  public function proses_login(){
-		$email = $this->input->post('email');
+  public function proses_login()
+  {
+    $email = $this->input->post('email');
     $password = $this->input->post('password');
 
-		$data = array(
+    $data = array(
       'email' => $email,
-			'password' => $password
+      'password' => $password
     );
 
     $cek = $this->User_model->get_user($data)->num_rows();
-    if($cek > 0){
+    if ($cek > 0) {
       $data_session = array(
         'nama' => $nama,
         'status' => "login_user"
       );
       $this->session->set_userdata($data_session);
       redirect(base_url('user/home'));
-    }
-    else{
+    } else {
       $data['login'] = "salah";
-      $this->load->view('pages/user/login',$data);
+      $this->load->view('pages/user/login', $data);
     }
-	}
+  }
 
-	public function proses_logout(){
-		$this->session->sess_destroy();
-		redirect(base_url('user/login'));
-	}
-} 
+  public function proses_logout()
+  {
+    $this->session->sess_destroy();
+    redirect(base_url('user/login'));
+  }
+}

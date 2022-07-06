@@ -20,12 +20,12 @@ class Tips extends CI_Controller
     $this->load->model('Konsultasi_model');
   }
 
-  public function index(){
-    $data['penyakit']=$this->Konsultasi_model->daftar_penyakit();
+  public function index()
+  {
+    $data['penyakit'] = $this->Konsultasi_model->daftar_penyakit();
 
     $this->load->view('pages/static/header');
-    $this->load->view('pages/forms/tips_perawatan',$data);
+    $this->load->view('pages/forms/tips_perawatan', $data);
     $this->load->view('pages/static/footer');
   }
-
 }

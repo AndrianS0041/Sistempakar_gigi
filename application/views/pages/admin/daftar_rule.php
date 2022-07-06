@@ -28,30 +28,30 @@
             $no = 1;
             foreach ($rule as $data) {
             ?>
-            <tr>
-              <td><?php echo $no; ?></td>
-              <td><?php echo $data->kode_rule; ?></td>
-              <td><?php echo $data->kode_gejala; ?></td>
-              <td><?php echo $data->kode_penyakit; ?></td>
-              <td>
-                <a href="<?php echo base_url(); ?>admin/rule/edit/<?php echo $data->id_rule; ?>" class="btn btn-warning btn-icon-split btn-sm">
+              <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $data->kode_rule; ?></td>
+                <td><?php echo $data->kode_gejala; ?></td>
+                <td><?php echo $data->kode_penyakit; ?></td>
+                <td>
+                  <a href="<?php echo base_url(); ?>admin/rule/edit/<?php echo $data->id_rule; ?>" class="btn btn-warning btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-edit"></i>
                     </span>
                     <span class="text">Edit</span>
-                </a>
-                <a href="<?php echo base_url(); ?>admin/rule/hapus/<?php echo $data->id_rule; ?>" class="btn btn-danger btn-icon-split btn-sm">
+                  </a>
+                  <a href="<?php echo base_url(); ?>admin/rule/hapus/<?php echo $data->id_rule; ?>" class="btn btn-danger btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-times"></i>
                     </span>
                     <span class="text">Hapus</span>
-                </a>
-              </td>
-            </tr>
+                  </a>
+                </td>
+              </tr>
             <?php
-            $no++;
+              $no++;
             }
-             ?>
+            ?>
           </tbody>
         </table>
       </div>

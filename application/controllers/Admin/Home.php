@@ -20,32 +20,33 @@ class Home extends CI_Controller
     $this->load->model('Admin_model');
   }
 
-  public function index(){
+  public function index()
+  {
 
-		if($this->session->userdata('status') != "login"){
-			redirect(base_url('admin/login'));
-		}
+    if ($this->session->userdata('status') != "login") {
+      redirect(base_url('admin/login'));
+    }
 
     $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();
     $data['gejala'] = $this->Admin_model->getAll_gejala()->num_rows();
     $data['rule'] = $this->Admin_model->getAll_rule()->num_rows();
 
     $this->load->view('pages/admin/header');
-		$this->load->view('pages/admin/home',$data);
-		$this->load->view('pages/admin/footer');
-	}
+    $this->load->view('pages/admin/home', $data);
+    $this->load->view('pages/admin/footer');
+  }
 
-  public function api(){
+  public function api()
+  {
 
-		if($this->session->userdata('status') != "login"){
-			redirect(base_url('admin/login'));
-		}
+    if ($this->session->userdata('status') != "login") {
+      redirect(base_url('admin/login'));
+    }
 
     $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();
     $data['gejala'] = $this->Admin_model->getAll_gejala()->num_rows();
     $data['rule'] = $this->Admin_model->getAll_rule()->num_rows();
 
     echo json_encode($data);
-	}
-
+  }
 }

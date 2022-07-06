@@ -18,14 +18,14 @@
     <div class="container">
       <div class="row">
         <div class="info-box">
-            <!-- Apply any bg-* class to to the icon to color it -->
-            <span class="info-box-icon bg-aqua"><i class="fa fa-mouse-pointer"></i></span>
-            <div class="info-box-content">
-              <h4>Pilihlah salah satu penyakit berikut ini :</h4>
-            </div><!-- /.info-box-content -->
+          <!-- Apply any bg-* class to to the icon to color it -->
+          <span class="info-box-icon bg-aqua"><i class="fa fa-mouse-pointer"></i></span>
+          <div class="info-box-content">
+            <h4>Pilihlah salah satu penyakit berikut ini :</h4>
+          </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
         <div>
-          <?php foreach ($penyakit as $p) {?>
+          <?php foreach ($penyakit as $p) { ?>
 
             <a class="btn btn-block btn-social btn-linkedin" href="pertanyaan/<?php echo $p->id_penyakit; ?>">
               <i class="fa fa-chevron-right"></i> <?php echo $p->nama_penyakit; ?>

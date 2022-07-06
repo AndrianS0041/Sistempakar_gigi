@@ -11,9 +11,7 @@ Author URL: http://w3layouts.com
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>S. E. S.</title>
     <!-- google-fonts -->
-    <link
-        href="//fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- //google-fonts -->
     <!-- Font-Awesome-Icons-CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/industries/css/fontawesome-all.min.css">
@@ -33,9 +31,7 @@ Author URL: http://w3layouts.com
     <a class="navbar-brand" href="#index.html">
         <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
     </a> -->
-                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                 </button>
@@ -97,8 +93,7 @@ Author URL: http://w3layouts.com
             <div class="container pt-5 pb-md-4">
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-6 pt-md-0 pt-4">
-                        <h3 class="mb-sm-4 mb-3 title">Kami adalah <span class="d-block-res">S<span class="type-js"><span
-                                        class="text-js">.E.S.</span></span></span></h3>
+                        <h3 class="mb-sm-4 mb-3 title">Kami adalah <span class="d-block-res">S<span class="type-js"><span class="text-js">.E.S.</span></span></span></h3>
                         <p>Sebuah website sistem pakar yang membantu anda mendiagnosa penyakit domba.</p>
                         <div class="mt-md-5 mt-4 mb-lg-0 mb-4">
                             <a class="btn btn-style" href="<?php echo base_url(); ?>home">Lihat Sekarang</a>
@@ -258,7 +253,7 @@ Author URL: http://w3layouts.com
     </button>
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
+        window.onscroll = function() {
             scrollFunction()
         };
 
@@ -305,7 +300,7 @@ Author URL: http://w3layouts.com
             window.requestAnimationFrame(animate);
         }
 
-        $(window).on('mousemove click', function (e) {
+        $(window).on('mousemove click', function(e) {
 
             var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
             var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
@@ -325,7 +320,7 @@ Author URL: http://w3layouts.com
     <!-- magnific popup -->
     <script src="<?php echo base_url(); ?>assets/industries/js/jquery.magnific-popup.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.popup-with-zoom-anim').magnificPopup({
                 type: 'inline',
 
@@ -365,7 +360,7 @@ Author URL: http://w3layouts.com
     <script src="<?php echo base_url(); ?>assets/industries/js/owl.carousel.js"></script>
     <!-- script for tesimonials carousel slider -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#owl-demo2").owlCarousel({
                 loop: true,
                 nav: false,
@@ -411,13 +406,13 @@ Author URL: http://w3layouts.com
             var amntOfChars = text.length;
             var newString = "";
             thhis.text("|");
-            setTimeout(function () {
+            setTimeout(function() {
                 thhis.css("opacity", 1);
                 thhis.prev().removeAttr("style");
                 thhis.text("");
                 for (var i = 0; i < amntOfChars; i++) {
-                    (function (i, char) {
-                        setTimeout(function () {
+                    (function(i, char) {
+                        setTimeout(function() {
                             newString += char;
                             thhis.text(newString);
                         }, i * typingSpeed);
@@ -426,7 +421,7 @@ Author URL: http://w3layouts.com
             }, 1500);
         }
 
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Now to start autoTyping just call the autoType function with the
             // class of outer div
             // The second paramter is the speed between each letter is typed.
@@ -437,7 +432,7 @@ Author URL: http://w3layouts.com
 
     <!-- MENU-JS -->
     <script>
-        $(window).on("scroll", function () {
+        $(window).on("scroll", function() {
             var scroll = $(window).scrollTop();
 
             if (scroll >= 80) {
@@ -448,14 +443,14 @@ Author URL: http://w3layouts.com
         });
 
         //Main navigation Active Class Add Remove
-        $(".navbar-toggler").on("click", function () {
+        $(".navbar-toggler").on("click", function() {
             $("header").toggleClass("active");
         });
-        $(document).on("ready", function () {
+        $(document).on("ready", function() {
             if ($(window).width() > 991) {
                 $("header").removeClass("active");
             }
-            $(window).on("resize", function () {
+            $(window).on("resize", function() {
                 if ($(window).width() > 991) {
                     $("header").removeClass("active");
                 }
@@ -466,8 +461,8 @@ Author URL: http://w3layouts.com
 
     <!-- disable body scroll which navbar is in active -->
     <script>
-        $(function () {
-            $('.navbar-toggler').click(function () {
+        $(function() {
+            $('.navbar-toggler').click(function() {
                 $('body').toggleClass('noscroll');
             })
         });

@@ -9,7 +9,9 @@
       box-sizing: border-box;
     }
 
-    input[type=text], select, textarea {
+    input[type=text],
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -17,7 +19,9 @@
       resize: vertical;
     }
 
-    input[type=number], select, textarea {
+    input[type=number],
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -70,7 +74,10 @@
 
     /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
-      .col-25, .col-75, input[type=submit] {
+
+      .col-25,
+      .col-75,
+      input[type=submit] {
         width: 100%;
         margin-top: 0;
       }
@@ -84,56 +91,56 @@
         foreach ($penyakit as $data) {
       ?>
 
-      <div class="row">
-        <div class="col-25">
-          <label for="kode_penyakit">Kode Penyakit</label>
-        </div>
-        <div class="col-75">
-          <input type="hidden" name="id_penyakit" required value="<?php echo $data->id_penyakit; ?>">
-          <input type="text" name="kode_penyakit" value="<?php echo $data->kode_penyakit; ?>" readonly>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="nama_penyakit">Nama Penyakit</label>
-        </div>
-        <div class="col-75">
-          <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" required value="<?php echo $data->nama_penyakit; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="penjelasan">Penjelasan</label>
-        </div>
-        <div class="col-75">
-          <textarea name="penjelasan" placeholder="Penjelasan" style="height:200px"><?php echo $data->penjelasan; ?></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="gejala">Gejala</label>
-        </div>
-        <div class="col-75">
-          <textarea name="gejala" placeholder="Gejala" style="height:200px"><?php echo $data->gejala; ?></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="penanganan">Penanganan</label>
-        </div>
-        <div class="col-75">
-          <textarea name="penanganan" placeholder="Penanganan" style="height:200px"><?php echo $data->penanganan; ?></textarea>
-        </div>
-      </div>
-      <br>
-      <div class="row float-right">
-        <input type="submit" value="Submit">
-      </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="kode_penyakit">Kode Penyakit</label>
+            </div>
+            <div class="col-75">
+              <input type="hidden" name="id_penyakit" required value="<?php echo $data->id_penyakit; ?>">
+              <input type="text" name="kode_penyakit" value="<?php echo $data->kode_penyakit; ?>" readonly>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="nama_penyakit">Nama Penyakit</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" required value="<?php echo $data->nama_penyakit; ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="penjelasan">Penjelasan</label>
+            </div>
+            <div class="col-75">
+              <textarea name="penjelasan" placeholder="Penjelasan" style="height:200px"><?php echo $data->penjelasan; ?></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="gejala">Gejala</label>
+            </div>
+            <div class="col-75">
+              <textarea name="gejala" placeholder="Gejala" style="height:200px"><?php echo $data->gejala; ?></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="penanganan">Penanganan</label>
+            </div>
+            <div class="col-75">
+              <textarea name="penanganan" placeholder="Penanganan" style="height:200px"><?php echo $data->penanganan; ?></textarea>
+            </div>
+          </div>
+          <br>
+          <div class="row float-right">
+            <input type="submit" value="Submit">
+          </div>
 
       <?php
         }
       }
-       ?>
+      ?>
     </form>
   </div>
   <br><br><br>

@@ -4,9 +4,8 @@
 /**
  *
  */
-class Daftar extends CI_Controller
+class Profil extends CI_Controller
 {
-
   function __construct()
   {
     parent::__construct();
@@ -23,16 +22,28 @@ class Daftar extends CI_Controller
   public function index()
   {
 
-    if ($this->session->userdata('status') == "login_user") {
-      redirect(base_url('user/home'));
+    if ($this->session->userdata('status') != "login_user") {
+      redirect(base_url('user/login'));
     }
 
-    $this->load->view('pages/user/daftar');
+    $id_user = $this->uri->segment(4);
+
+    $where = array('id_user' => $id_user,);
+
+    $data['user'] = $this->User_model->get_userid($where)->result();
+
+    $this->load->view('pages/user/header');
+    $this->load->view('pages/user/profil', $data);
+    $this->load->view('pages/user/footer');
   }
 
-  public function proses_daftar()
+  public function proses_edit()
   {
 
+    if ($this->session->userdata('status') != "login_user") {
+      redirect(base_url('user/login'));
+    }
+    $id_user = $this->input->post('id_user');
     $nama = $this->input->post('nama');
     $email = $this->input->post('email');
     $hp = $this->input->post('hp');
@@ -47,12 +58,7 @@ class Daftar extends CI_Controller
       'password' => $password
     );
 
-    if ($this->User_model->insert_user($data) == TRUE) {
-      $this->session->set_flashdata('tambah', true);
-    } else {
-      $this->session->set_flashdata('tambah', false);
-    }
-
-    redirect(base_url('user/daftar'));
+    $this->User_model->update_user($data, $id_user);
+    redirect(base_url('user/profil'));
   }
 }

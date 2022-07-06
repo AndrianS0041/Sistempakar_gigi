@@ -20,27 +20,34 @@ class Home extends CI_Controller
     $this->load->model('User_model');
   }
 
-  public function index(){
+  public function index()
+  {
 
-		if($this->session->userdata('status') != "login_user"){
-			redirect(base_url('user/login'));
-		}
+    if ($this->session->userdata('status') != "login_user") {
+      // $id = $this->session->userdata['logged_in']['id'];
+      redirect(base_url('user/login'));
+    }
+    $id = $this->uri->segment(2);
+    $data['nama'] = $this->User_model->get_riwayatid($id)->result();
+
     $this->load->view('pages/user/header');
-		$this->load->view('pages/user/home');
-		$this->load->view('pages/user/footer');
-	}
+    $this->load->view('pages/user/home', $data);
+    $this->load->view('pages/user/footer');
+  }
 
-  public function api(){
+  public function api()
+  {
 
-		if($this->session->userdata('status') != "login_user"){
-			redirect(base_url('user/login'));
-		}
+    if ($this->session->userdata('status') != "login_user") {
+      redirect(base_url('user/login'));
+    }
+    // $data['user'] = $this->User_model->get_userlogin()->num_rows();
 
+    $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();
     $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();
     $data['gejala'] = $this->Admin_model->getAll_gejala()->num_rows();
     $data['rule'] = $this->Admin_model->getAll_rule()->num_rows();
 
     echo json_encode($data);
-	}
-
+  }
 }

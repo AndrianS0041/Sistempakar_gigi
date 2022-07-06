@@ -61,9 +61,6 @@
                                 <div class="form-group">
                                     <input type="texarea" class="form-control form-control-user" name="alamat" id="exampleInputAlamat"
                                         placeholder="Alamat" required>
-                                        <textarea name="alamat" rows="4" cols="50" placeholder="Alamat" require>
-
-                                        </textarea>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user" name="password"

@@ -27,29 +27,29 @@
             $no = 1;
             foreach ($gejala as $data) {
             ?>
-            <tr>
-              <td><?php echo $no; ?></td>
-              <td><?php echo $data->kode_gejala; ?></td>
-              <td><?php echo $data->gejala; ?></td>
-              <td>
-                <a href="<?php echo base_url(); ?>admin/gejala/edit/<?php echo $data->id_gejala; ?>" class="btn btn-warning btn-icon-split btn-sm">
+              <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $data->kode_gejala; ?></td>
+                <td><?php echo $data->gejala; ?></td>
+                <td>
+                  <a href="<?php echo base_url(); ?>admin/gejala/edit/<?php echo $data->id_gejala; ?>" class="btn btn-warning btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-edit"></i>
                     </span>
                     <span class="text">Edit</span>
-                </a>
-                <a href="<?php echo base_url(); ?>admin/gejala/hapus/<?php echo $data->id_gejala; ?>" class="btn btn-danger btn-icon-split btn-sm">
+                  </a>
+                  <a href="<?php echo base_url(); ?>admin/gejala/hapus/<?php echo $data->id_gejala; ?>" class="btn btn-danger btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-times"></i>
                     </span>
                     <span class="text">Hapus</span>
-                </a>
-              </td>
-            </tr>
+                  </a>
+                </td>
+              </tr>
             <?php
-            $no++;
+              $no++;
             }
-             ?>
+            ?>
           </tbody>
         </table>
       </div>

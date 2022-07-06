@@ -20,8 +20,8 @@ class Landing extends CI_Controller
     $this->load->model('Konsultasi_model');
   }
 
-  public function index(){
+  public function index()
+  {
     $this->load->view('pages/static/landing');
   }
-
 }

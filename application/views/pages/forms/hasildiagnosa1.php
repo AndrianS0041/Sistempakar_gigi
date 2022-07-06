@@ -17,90 +17,90 @@ Content Wrapper. Contains page content
     $jawaban = $value->jawaban;
     $id_jawaban = $value->id_jawaban;
   }
-  $exjawaban = explode (" ",$jawaban);
+  $exjawaban = explode(" ", $jawaban);
   foreach ($penyakit as $keys) {
     $rule = $keys->ketentuan;
   }
-  $exrule = explode (" ",$rule);
-   ?>
+  $exrule = explode(" ", $rule);
+  ?>
 
   <!-- Main content -->
   <section class="content">
     <div class="container">
-    <div class="jawaban">
+      <div class="jawaban">
         <div class="row">
           <div class="jawab">
             <?php
             if ($jawaban == $rule) {
             ?>
-            <div class="info-box">
+              <div class="info-box">
                 <!-- Apply any bg-* class to to the icon to color it -->
                 <span class="info-box-icon bg-blue"><i class="fa fa-star"></i></span>
                 <div class="info-box-content">
                   <h4>Hasil diagnosa :</h4>
                   Domba kemungkinan <mark>terkena</mark> penyakit <b><?php
-                  foreach ($penyakit as $key) {
-                    echo $key->nama_penyakit;
-                  }
-                  ?></b>
+                                                                      foreach ($penyakit as $key) {
+                                                                        echo $key->nama_penyakit;
+                                                                      }
+                                                                      ?></b>
                 </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
+              </div><!-- /.info-box -->
 
-            <a href="<?php echo base_url(); ?>cetak/<?php echo $id_jawaban; ?>">
-              <button type="button" class="btn btn-info" name="button">Cetak</button>
-            </a>
-            <br>
+              <a href="<?php echo base_url(); ?>cetak/<?php echo $id_jawaban; ?>">
+                <button type="button" class="btn btn-info" name="button">Cetak</button>
+              </a>
+              <br>
             <?php
             } else {
             ?>
-            <div class="info-box">
+              <div class="info-box">
                 <!-- Apply any bg-* class to to the icon to color it -->
                 <span class="info-box-icon bg-yellow"><i class="fa fa-warning"></i></span>
                 <div class="info-box-content">
                   <h4>Hasil diagnosa :</h4>
                   <span class="progress-description">
                     Domba sepertinya <mark>tidak terkena</mark> penyakit <b><?php
-                    foreach ($penyakit as $key) {
-                      echo $key->nama_penyakit;
-                    }
-                    ?></b>
+                                                                            foreach ($penyakit as $key) {
+                                                                              echo $key->nama_penyakit;
+                                                                            }
+                                                                            ?></b>
                   </span>
                 </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
+              </div><!-- /.info-box -->
 
-            <h4>Anda bisa mencoba kembali dengan penyakit yang lain <a href="<?php echo base_url(); ?>konsultasi">konsultasi</a>.</h4>
-            <br>
+              <h4>Anda bisa mencoba kembali dengan penyakit yang lain <a href="<?php echo base_url(); ?>konsultasi">konsultasi</a>.</h4>
+              <br>
             <?php
-            }?>
+            } ?>
 
             <?php
             if ($jawaban == $rule) {
             ?>
-            <br>
-            <div class="box box-info collapsed-box">
-              <div class="box-header with-border" data-widget="collapse">
-                <h3 class="box-title">Penjelasan</h3>
+              <br>
+              <div class="box box-info collapsed-box">
+                <div class="box-header with-border" data-widget="collapse">
+                  <h3 class="box-title">Penjelasan</h3>
+                </div>
+                <div class="box-body">
+                  <?php echo $key->penjelasan; ?>
+                </div>
               </div>
-              <div class="box-body">
-                <?php echo $key->penjelasan; ?>
+              <div class="box box-info collapsed-box">
+                <div class="box-header with-border" data-widget="collapse">
+                  <h3 class="box-title">Gejala</h3>
+                </div>
+                <div class="box-body">
+                  <?php echo $key->gejala; ?>
+                </div>
               </div>
-            </div>
-            <div class="box box-info collapsed-box">
-              <div class="box-header with-border" data-widget="collapse">
-                <h3 class="box-title">Gejala</h3>
+              <div class="box box-info collapsed-box">
+                <div class="box-header with-border" data-widget="collapse">
+                  <h3 class="box-title">Penanganan</h3>
+                </div>
+                <div class="box-body">
+                  <?php echo $key->penanganan; ?>
+                </div>
               </div>
-              <div class="box-body">
-                <?php echo $key->gejala; ?>
-              </div>
-            </div>
-            <div class="box box-info collapsed-box">
-              <div class="box-header with-border" data-widget="collapse">
-                <h3 class="box-title">Penanganan</h3>
-              </div>
-              <div class="box-body">
-                <?php echo $key->penanganan; ?>
-              </div>
-            </div>
 
             <?php
             }
@@ -108,50 +108,50 @@ Content Wrapper. Contains page content
 
             <h3 class="page-header">Jawaban:</h3>
             <?php
-            $no=0;
+            $no = 0;
             foreach ($pertanyaan as $p) {
-            if ($exjawaban[$no]==$exrule[$no]) {
+              if ($exjawaban[$no] == $exrule[$no]) {
             ?>
-            <div class="box box-solid box-success">
-              <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $p->pertanyaan; ?></h3>
-              </div>
-              <div class="box-body">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" id="options<?php echo $no;  ?>Radios1" name="jwb<?php echo $no;  ?>" checked>
-                      <?php if ($exjawaban[$no]=="Y") {
-                        echo "Ya";
-                      }else {
-                        echo "Tidak";
-                      } ?>
-                    </label>
+                <div class="box box-solid box-success">
+                  <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo $p->pertanyaan; ?></h3>
                   </div>
-              </div>
-            </div><!-- /.box -->
-            <?php
-            }else {
-            ?>
-            <div class="box box-solid box-danger">
-              <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $p->pertanyaan; ?></h3>
-              </div>
-              <div class="box-body">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" id="options<?php echo $no;  ?>Radios1" name="jwb<?php echo $no;  ?>" checked>
-                      <?php if ($exjawaban[$no]=="Y") {
-                        echo "Ya";
-                      }else {
-                        echo "Tidak";
-                      } ?>
-                    </label>
+                  <div class="box-body">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" id="options<?php echo $no;  ?>Radios1" name="jwb<?php echo $no;  ?>" checked>
+                        <?php if ($exjawaban[$no] == "Y") {
+                          echo "Ya";
+                        } else {
+                          echo "Tidak";
+                        } ?>
+                      </label>
+                    </div>
                   </div>
-              </div>
-            </div><!-- /.box -->
+                </div><!-- /.box -->
+              <?php
+              } else {
+              ?>
+                <div class="box box-solid box-danger">
+                  <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo $p->pertanyaan; ?></h3>
+                  </div>
+                  <div class="box-body">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" id="options<?php echo $no;  ?>Radios1" name="jwb<?php echo $no;  ?>" checked>
+                        <?php if ($exjawaban[$no] == "Y") {
+                          echo "Ya";
+                        } else {
+                          echo "Tidak";
+                        } ?>
+                      </label>
+                    </div>
+                  </div>
+                </div><!-- /.box -->
             <?php
-            }
-            $no++;
+              }
+              $no++;
             }
             ?>
 
@@ -160,7 +160,7 @@ Content Wrapper. Contains page content
             </a>
           </div>
         </div>
-    </div>
+      </div>
     </div>
   </section>
   <!-- /.content -->

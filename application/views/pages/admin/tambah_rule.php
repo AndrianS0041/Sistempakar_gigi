@@ -9,7 +9,9 @@
       box-sizing: border-box;
     }
 
-    input[type=text], select, textarea {
+    input[type=text],
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -17,7 +19,9 @@
       resize: vertical;
     }
 
-    input[type=number], select, textarea {
+    input[type=number],
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -70,7 +74,10 @@
 
     /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
-      .col-25, .col-75, input[type=submit] {
+
+      .col-25,
+      .col-75,
+      input[type=submit] {
         width: 100%;
         margin-top: 0;
       }
@@ -82,12 +89,12 @@
       <?php
       if (isset($cek_kode)) {
       ?>
-      <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-        </button>
-        Kode <strong><?php echo $kode_rule; ?></strong> telah terdaftar
-      </div>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          Kode <strong><?php echo $kode_rule; ?></strong> telah terdaftar
+        </div>
       <?php
       }
       ?>
