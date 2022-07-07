@@ -24,7 +24,6 @@ class Home extends CI_Controller
   {
 
     if ($this->session->userdata('status') != "login_user") {
-      // $id = $this->session->userdata['logged_in']['id'];
       redirect(base_url('user/login'));
     }
     // $get = $this->User_model->get_userid($data['nama'])->result();

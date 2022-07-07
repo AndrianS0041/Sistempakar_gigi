@@ -36,11 +36,11 @@ class User_model extends CI_Model
     return ($this->db->affected_rows() > 0) ? TRUE : FALSE;
   }
 
-  public function get_userid($data)
+  public function get_userid()
   {
-    $this->db->select('*');
+    $this->db->select('id_user');
     $this->db->from('tb_user');
-    $this->db->where('nama = ', $data['nama']);
+    $this->db->where('id_user = ');
     $query = $this->db->get();
     return $query;
   }

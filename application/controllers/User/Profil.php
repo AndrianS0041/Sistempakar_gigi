@@ -26,7 +26,7 @@ class Profil extends CI_Controller
       redirect(base_url('user/login'));
     }
 
-    $id_user = $this->uri->segment(4);
+    $id_user = $this->uri->segment(1);
 
     $where = array('id_user' => $id_user,);
 

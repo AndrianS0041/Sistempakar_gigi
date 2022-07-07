@@ -106,13 +106,9 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- <?php
-                            foreach ($nama as $nama) {
-                            ?> -->
-                    <!-- <h4>Hai <?php echo $nama->nama; ?>, Selamat Datang</h4> -->
-                    <!-- <?php
-                            }
-                            ?> -->
+
+                    <h4>Hai <?php echo $this->session->userdata('email') ?>, Selamat Datang</h4>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <div class="input-group">
