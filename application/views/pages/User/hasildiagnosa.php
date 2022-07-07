@@ -8,11 +8,11 @@
   <div class="row">
 
     <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-12 col-lg-7">
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Petunjuk</h6>
+          <h6 class="m-0 font-weight-bold text-primary">Hasil diagnosa</h6>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -60,8 +60,7 @@
                                 <div class="info-box">
                                   <span class="info-box-icon bg-yellow"><i class="fa fa-question-circle"></i></span>
                                   <div class="info-box-content">
-                                    <h4>Hasil diagnosa :</h4>
-                                    Hasil diagnosa penyakit <mark style="background: #e9dbc9;">tidak diketahui</mark>
+                                    Hasil diagnosa penyakit anda : <mark style="background: #e9dbc9;">tidak diketahui</mark>
                                   </div>
                                 </div>
                                 <br>
@@ -74,42 +73,37 @@
                                   <div class="info-box">
                                     <span class="info-box-icon bg-yellow"><i class="fa fa-warning"></i></span>
                                     <div class="info-box-content">
-                                      <h4>Hasil diagnosa :</h4>
                                       Anda kemungkinan <mark style="background: #e9dbc9;">terkena</mark> penyakit <b><?php echo $golpenyakit; ?></b>
                                     </div>
                                   </div>
-
-                                  <a href="<?php echo base_url(); ?>cetak/<?php echo $id_jawaban; ?>">
-                                    <button type="button" class="btn btn-info" name="button">Cetak</button>
-                                  </a>
-                                  <br>
-
                                   <br>
                                   <div class="box box-info collapsed-box">
                                     <div class="box-header with-border" data-widget="collapse">
-                                      <h3 class="box-title">Penjelasan</h3><button type="button" class="btn btn-box-tool"><i class="fa fa-angle-down"></i></button>
+                                      <h5 class="box-title">Penjelasan</h5>
                                     </div>
                                     <div class="box-body">
                                       <?php echo $golpenjelasanpenyakit; ?>
                                     </div>
                                   </div>
+                                  <hr>
                                   <div class="box box-info collapsed-box">
                                     <div class="box-header with-border" data-widget="collapse">
-                                      <h3 class="box-title">Gejala</h3><button type="button" class="btn btn-box-tool"><i class="fa fa-angle-down"></i></button>
-                                    </div>
-                                    <div class="box-body">
-                                      <?php echo $golgejalapenyakit; ?>
+                                      <h5 class="box-title">Gejala</h5>
+                                      <div class="box-body">
+                                        <?php echo $golgejalapenyakit; ?>
+                                      </div>
                                     </div>
                                   </div>
+                                  <hr>
                                   <div class="box box-info collapsed-box">
                                     <div class="box-header with-border" data-widget="collapse">
-                                      <h3 class="box-title">Penanganan</h3><button type="button" class="btn btn-box-tool"><i class="fa fa-angle-down"></i></button>
+                                      <h5 class="box-title">Penanganan</h5>
                                     </div>
                                     <div class="box-body">
                                       <?php echo $golpenangananpenyakit; ?>
                                     </div>
                                   </div>
-
+                                  <hr>
                                 <?php
                                 } else {
                                   foreach ($rule as $ru) {
@@ -138,36 +132,32 @@
                                   <div class="info-box">
                                     <span class="info-box-icon bg-yellow"><i class="fa fa-warning"></i></span>
                                     <div class="info-box-content">
-                                      <h4>Hasil diagnosa :</h4>
                                       Anda kemungkinan <mark style="background: #e9dbc9;">terkena</mark> penyakit <b><?php echo $golpenyakit; ?></b>
                                     </div><!-- /.info-box-content -->
                                   </div><!-- /.info-box -->
-
-                                  <a href="<?php echo base_url(); ?>cetak/<?php echo $id_jawaban; ?>">
-                                    <button type="button" class="btn btn-info" name="button">Cetak</button>
-                                  </a>
+                                  <hr>
                                   <br>
 
-                                  <br>
                                   <div class="box box-info collapsed-box">
-                                    <div class="box-header with-border" data-widget="collapse">
-                                      <h3 class="box-title">Penjelasan</h3><button type="button" class="btn btn-box-tool"><i class="fa fa-angle-down"></i></button>
-                                    </div>
+                                    <h5 class="box-title">Penjelasan</h5>
+
                                     <div class="box-body">
                                       <?php echo $golpenjelasanpenyakit; ?>
                                     </div>
                                   </div>
+                                  <hr>
                                   <div class="box box-info collapsed-box">
                                     <div class="box-header with-border" data-widget="collapse">
-                                      <h3 class="box-title">Gejala</h3><button type="button" class="btn btn-box-tool"><i class="fa fa-angle-down"></i></button>
+                                      <h5 class="box-title">Gejala</h5>
                                     </div>
                                     <div class="box-body">
                                       <?php echo $golgejalapenyakit; ?>
                                     </div>
                                   </div>
+                                  <hr>
                                   <div class="box box-info collapsed-box">
                                     <div class="box-header with-border" data-widget="collapse">
-                                      <h3 class="box-title">Penanganan</h3><button type="button" class="btn btn-box-tool"><i class="fa fa-angle-down"></i></button>
+                                      <h5 class="box-title">Penanganan</h5>
                                     </div>
                                     <div class="box-body">
                                       <?php echo $golpenangananpenyakit; ?>
@@ -177,7 +167,11 @@
                                 }
                               }
                               ?>
-
+                              <br>
+                              <br>
+                              <a href="<?php echo base_url(); ?>cetak/<?php echo $id_jawaban; ?>">
+                                <button type="button" class="btn btn-info" name="button">Cetak</button>
+                              </a>
                               <a href="<?php echo base_url(); ?>user/diagnosa">
                                 <button type="button" class="btn btn-danger" name="button">Kembali</button>
                               </a>

@@ -40,7 +40,7 @@ class User_model extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('tb_user');
-    $this->db->where('name = ', $data);
+    $this->db->where('nama = ', $data['nama']);
     $query = $this->db->get();
     return $query;
   }
@@ -96,6 +96,7 @@ class User_model extends CI_Model
   {
     $this->db->set('jawaban', $data['hasil']);
     $this->db->set('waktu', $data['waktu']);
+    // $this->db->set('id_user', $data['id_user']);
     $this->db->insert('riwayat_jawaban');
   }
 

@@ -98,7 +98,8 @@
                               var dateTime = date + ' ' + time;
 
                               form.method = "POST";
-                              form.action = base_url + 'User/Diagnosa/cek_diagnosa';
+                              form.action = base_url + 'Konsultasi_control/cek_diagnosa';
+                              //form.action = base_url + 'User/Diagnosa/cek_diagnosa';
 
                               element1.value = jawaban;
                               element1.name = "jawaban";
@@ -140,7 +141,8 @@
                               var dateTime = date + ' ' + time;
 
                               form.method = "POST";
-                              form.action = base_url + 'User/Diagnosa/cek_diagnosa';
+                              form.action = base_url + 'Konsultasi_control/cek_diagnosa';
+                              //form.action = base_url + 'User/Diagnosa/cek_diagnosa';
 
                               element1.value = jawaban;
                               element1.name = "jawaban";
@@ -166,7 +168,8 @@
                               var dateTime = date + ' ' + time;
 
                               form.method = "POST";
-                              form.action = base_url + 'User/Diagnosa/cek_diagnosa';
+                              form.action = base_url + 'Konsultasi_control/cek_diagnosa';
+                              //form.action = base_url + 'User/Diagnosa/cek_diagnosa';
 
                               element1.value = gejala_list;
                               element1.name = "jawaban";
@@ -193,7 +196,8 @@
                             var dateTime = date + ' ' + time;
 
                             form.method = "POST";
-                            form.action = base_url + 'User/Diagnosa/cek_diagnosa';
+                            form.action = base_url + 'Konsultasi_control/cek_diagnosa';
+                            // form.action = base_url + 'User/Diagnosa/cek_diagnosa';
 
                             element1.value = gejala_list;
                             element1.name = "jawaban";

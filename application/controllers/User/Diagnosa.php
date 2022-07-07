@@ -96,11 +96,26 @@ class Diagnosa extends CI_Controller
     foreach ($get as $key) {
       $id = $key->id_jawaban;
     }
-    redirect(base_url('user/hasildiagnosa/' . $id));
+    redirect('user/hasildiagnosa/' . $id);
   }
 
-  public function hasil_diagnosis()
+  public function hasildiagnosa()
   {
+    $data['waktu'] = $this->input->post('waktu');
+    echo $data['waktu'];
+    $hasil = $this->input->post('jawaban');
+    $arr_hasil = explode(",", $hasil);
+    $data['hasil'] = implode(" ", $arr_hasil);
+    echo $data['hasil'];
+
+    $this->User_model->tambah_riwayat($data);
+
+
+    $get = $this->User_model->get_riwayat($data['waktu'])->result();
+    foreach ($get as $key) {
+      $id = $key->id_jawaban;
+    }
+
     $id = $this->uri->segment(2);
     $data['hasil'] = $this->User_model->get_riwayatid($id)->result();
     $data['rule'] = $this->User_model->get_rule()->result();

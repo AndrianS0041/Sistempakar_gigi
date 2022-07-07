@@ -25,9 +25,9 @@ class Konsultasi_control extends CI_Controller
 
     $data['penyakit'] = $this->Konsultasi_model->daftar_penyakit();
 
-    $this->load->view('pages/static/header');
-    $this->load->view('pages/forms/daftar_konsultasi', $data);
-    $this->load->view('pages/static/footer');
+    $this->load->view('pages/user/header');
+    $this->load->view('pages/user/daftar_konsultasi', $data);
+    $this->load->view('pages/user/footer');
   }
 
   public function pertanyaan()
@@ -36,9 +36,9 @@ class Konsultasi_control extends CI_Controller
     $data['jumlah_pertanyaan'] = $this->Konsultasi_model->daftar_pertanyaan()->num_rows();
     $data['penyakit'] = $this->Konsultasi_model->get_penyakit()->result();
 
-    $this->load->view('pages/static/header');
+    $this->load->view('pages/user/header');
     $this->load->view('pages/forms/daftar_pertanyaan', $data);
-    $this->load->view('pages/static/footer');
+    $this->load->view('pages/user/footer');
   }
 
   public function api_pertanyaan()
@@ -90,9 +90,12 @@ class Konsultasi_control extends CI_Controller
     $data['rule'] = $this->Konsultasi_model->get_rule()->result();
     $data['penyakit'] = $this->Konsultasi_model->get_penyakit()->result();
 
-    $this->load->view('pages/static/header');
-    $this->load->view('pages/forms/hasildiagnosa', $data);
-    $this->load->view('pages/static/footer');
+    // $this->load->view('pages/static/header');
+    // $this->load->view('pages/forms/hasildiagnosa', $data);
+    // $this->load->view('pages/static/footer');
+    $this->load->view('pages/user/header');
+    $this->load->view('pages/user/hasildiagnosa', $data);
+    $this->load->view('pages/user/footer');
   }
 
   public function cek_diag()
@@ -197,7 +200,8 @@ class Konsultasi_control extends CI_Controller
     $data['rule'] = $this->Konsultasi_model->get_rule()->result();
     $data['penyakit'] = $this->Konsultasi_model->get_penyakit()->result();
 
-    $this->load->view('pages/static/print_diagnosa', $data);
+    //$this->load->view('pages/static/print_diagnosa', $data);
+    $this->load->view('pages/user/print_diagnosa', $data);
   }
 
   public function cek_diagnosaold()

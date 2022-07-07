@@ -27,11 +27,13 @@ class Home extends CI_Controller
       // $id = $this->session->userdata['logged_in']['id'];
       redirect(base_url('user/login'));
     }
-    $id = $this->uri->segment(2);
-    $data['nama'] = $this->User_model->get_riwayatid($id)->result();
+    // $get = $this->User_model->get_userid($data['nama'])->result();
+    // foreach ($get as $key) {
+    //   $nama = $key->nama;
+    // }
 
     $this->load->view('pages/user/header');
-    $this->load->view('pages/user/home', $data);
+    $this->load->view('pages/user/home');
     $this->load->view('pages/user/footer');
   }
 

@@ -105,26 +105,23 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
+
                     <!-- <?php
-
-                            foreach ($data as $user)
+                            foreach ($nama as $nama) {
                             ?> -->
-                    <h4>Hai , Selamat Datang</h4>
-
+                    <!-- <h4>Hai <?php echo $nama->nama; ?>, Selamat Datang</h4> -->
+                    <!-- <?php
+                            }
+                            ?> -->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <div class="input-group">
                             <div class="input-group-append">
-
                                 <h3">
                                     <a href="<?php echo base_url(); ?>user/login/proses_logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
                                     </h3>
-
                             </div>
                         </div>
                     </ul>
-
-
-
                 </nav>
                 <!-- End of Topbar -->
