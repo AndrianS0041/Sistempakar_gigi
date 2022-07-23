@@ -117,4 +117,26 @@ class User_model extends CI_Model
     $query = $this->db->get();
     return $query;
   }
+
+  public function getAll_gejala()
+  {
+    $this->db->select('*');
+    $this->db->from('tb_gejala');
+    $query = $this->db->get();
+    return $query;
+  }
+  public function getAll_penyakit()
+  {
+    $this->db->select('*');
+    $this->db->from('tb_penyakit');
+    $query = $this->db->get();
+    return $query;
+  }
+  public function getAll_rule()
+  {
+    $this->db->select('*');
+    $this->db->from('tb_rule');
+    $query = $this->db->get();
+    return $query;
+  }
 }

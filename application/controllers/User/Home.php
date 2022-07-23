@@ -44,10 +44,10 @@ class Home extends CI_Controller
     }
     // $data['user'] = $this->User_model->get_userlogin()->num_rows();
 
-    $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();
-    $data['penyakit'] = $this->Admin_model->getAll_penyakit()->num_rows();
-    $data['gejala'] = $this->Admin_model->getAll_gejala()->num_rows();
-    $data['rule'] = $this->Admin_model->getAll_rule()->num_rows();
+    $data['penyakit'] = $this->User_model->getAll_penyakit()->num_rows();
+    $data['penyakit'] = $this->User_model->getAll_penyakit()->num_rows();
+    $data['gejala'] = $this->User_model->getAll_gejala()->num_rows();
+    $data['rule'] = $this->User_model->getAll_rule()->num_rows();
 
     echo json_encode($data);
   }
